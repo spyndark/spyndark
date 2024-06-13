@@ -2,7 +2,7 @@
 // Render Swatch Legend v1.4.4 -- CC
 //>=--------------------------------------
 //
-//  This script will generate a legend of rectangles for every swatch in the main swatches palette.
+//  This script will generate a legend of circle for every swatch in the main swatches palette.
 //  You can configure spacing and value display by configuring the variables at the top
 //  of the script.
 //   update: v1.1 now tests color brightness and renders a white label if the color is dark.
@@ -55,10 +55,10 @@ for (var c = 0, len = swatches.length; c < len; c++) {
     swatchGroup.name = swatches[c].name;
     x = (w + h_pad) * ((c) % cols);
     y = (h + v_pad) * (Math.round(((c+2) + .03) / cols)) * -1;
-    rectRef = doc.pathItems.rectangle(y, x, w, h);
+    rectRef = doc.pathItems.circle(y, x, w, h);
     swatchColor = swatches[c].color;
     rectRef.fillColor = swatchColor;
-    textRectRef = doc.pathItems.rectangle(y - t_v_pad, x + t_h_pad, w - (2 * t_h_pad), h - (2 * t_v_pad));
+    textRectRef = doc.pathItems.circle(y - t_v_pad, x + t_h_pad, w - (2 * t_h_pad), h - (2 * t_v_pad));
     textRef = doc.textFrames.areaText(textRectRef);
     textRef.contents = swatches[c].name + "\r" + getColorValues(swatchColor);
     textRef.textRange.fillColor = is_dark(swatchColor) ? white : black;
