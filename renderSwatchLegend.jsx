@@ -55,7 +55,7 @@ for (var c = 0, len = swatches.length; c < len; c++) {
     swatchGroup.name = swatches[c].name;
     x = (w + h_pad) * ((c) % cols);
     y = (h + v_pad) * (Math.round(((c+2) + .03) / cols)) * -1;
-    rectRef = doc.pathItems.circle(y, x, w, h);
+    rectRef = doc.pathItems.circle(y, x,);
     swatchColor = swatches[c].color;
     rectRef.fillColor = swatchColor;
     textRectRef = doc.pathItems.circle(y - t_v_pad, x + t_h_pad, w - (2 * t_h_pad), h - (2 * t_v_pad));
